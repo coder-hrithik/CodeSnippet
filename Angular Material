@@ -1,5 +1,7 @@
 ng g m material --module=app
 
+npm install @angular/material 
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 // Material Form Controls
