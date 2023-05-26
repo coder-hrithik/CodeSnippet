@@ -1,0 +1,72 @@
+db.df
+
+app.df
+FROM openjdk:8-jdk-alpine
+COPY *.jar app.jar
+ENTRYPOINT ["java","-jar","app.jar"]
+
+project.yml
+version: "3.9"
+services:
+  application:
+    build:
+      context: .
+	dockerfile: ./app.df
+	container_name: app
+	ports:
+	- "9090:2323"
+	environment
+	- servername=database
+	- username=root
+	- password=root
+	depends_on
+	- database
+  database:
+    build:
+	context: .
+	dockerfile: ./db.df
+	container_name: db
+	ports:
+	- "3306:3306"
+	environment:
+	-MYSQL_ROOT_PASSWORD=root
+
+----------install docker
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+
+sudo apt-get update -y
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+curl -SL https://github.com/docker/compose/releases/download/v2.18.1/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
+ chmod a+x /usr/local/bin/docker-compose
+ docker-compose
+-------------------------
+
+docker images
+docker pull mysql
+docker-compose -f docker-proj.yml up -d
+docker ps -a
+
+ip of ec2:9090/player
+
+login to databse
+docker exec -it db bash
+mysql -u root -p
+show databses
+use
+
+---------------------------webserver(angular)-------------------------
+
+..
+
+----------------Linux-Linux-----------
+only use .pem file
+chmod 600 j.pem
+scp -i j.pem -pr 1.txt ubuntu@3.101.38.149:/home/ubuntu // using this command we can transfer any type of file from linux to linux
