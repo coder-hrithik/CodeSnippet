@@ -1,0 +1,16 @@
+git clone (http clone)
+git add .
+git status
+git commit -m "made changes"
+git pull origin v1.0.0 {enter username and password}
+git pull --all {to pull from all the branches}
+git push origin v1.0.0
+
+
+git pull origin <branch_name>
+git checkout <branch_name>
+git checkout -b <branch_name>
+
+-----------Merge conflict-----------
+git config pull.rebase false
+git pull origin v1.0.0 {enter username and password}
