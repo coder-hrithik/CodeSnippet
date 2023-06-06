@@ -1,6 +1,6 @@
 ng g m material --module=app
 
-npm add @angular/material 
+npm add @angular/material OR ng add @angular/material
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
