@@ -1,3 +1,9 @@
+---------Configure the git---------
+git config --global user.name "Hrithik"
+git config --global user.email "Hritik.prasad@gmail.com"
+git config --list
+
+
 git clone (http clone)
 git add .
 git status
