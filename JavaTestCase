@@ -1,0 +1,8 @@
+Mock the behaviour of repository calls
+  ➡️ when(repo.methodCall()).thenReturn(required mock Object)
+
+Mock an exception 
+  ➡️ when(repo.methodCall()).thenThrow(new ExceptionName("message"))
+  ➡️ assertThrows(ExceptionName.class, () -> serviceImpl.methodCall())
+
+
